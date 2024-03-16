@@ -1,0 +1,65 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqfg2f501lbsl"]
+
+[ext_resource type="Script" path="res://beta/MoveTowardTarget.cs" id="1_u8jjy"]
+[ext_resource type="Material" uid="uid://bwj8wobvu6wmf" path="res://demo/clash/clashPrefabs/outlineShader.tres" id="2_fngea"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Target/Target.cs" id="3_wdi67"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Health/Health.cs" id="4_apd40"]
+[ext_resource type="Texture2D" uid="uid://bbc1mw6k4msu4" path="res://demo/graphics/medievalGraphics/archer/BlueArcher.png" id="4_uyhrv"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Knockback/Knockback.cs" id="5_7f3c8"]
+[ext_resource type="Script" path="res://beta/FaceTarget.cs" id="5_rqp6m"]
+[ext_resource type="Resource" uid="uid://b4yrr0s5cgwg5" path="res://demo/clash/clashPrefabs/archer_bow.tres" id="7_4fcoa"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Ability/AbilityTimer.cs" id="8_g588l"]
+[ext_resource type="Script" path="res://beta/BulletSpawner.cs" id="11_67a2d"]
+[ext_resource type="PackedScene" uid="uid://diic3wiy8kkkh" path="res://demo/demoPrefabs/clashArcherArrow.tscn" id="12_oeof3"]
+[ext_resource type="PackedScene" uid="uid://d2p6rf0iikmg7" path="res://beta/health_bar.tscn" id="13_yrtpy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lid4q"]
+radius = 33.5
+height = 108.0
+
+[node name="ClashSniper" type="CharacterBody2D"]
+position = Vector2(-397.685, -5)
+motion_mode = 1
+script = ExtResource("1_u8jjy")
+maxSpeed = 60.0
+preferredRadius = 800.0
+
+[node name="ArcherGraphics" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+material = ExtResource("2_fngea")
+position = Vector2(10.685, 0)
+script = ExtResource("5_rqp6m")
+target = NodePath("../Target")
+flipXToFaceTarget = true
+rotateToFaceTarget = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ArcherGraphics"]
+texture = ExtResource("4_uyhrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.184998, 0)
+shape = SubResource("CapsuleShape2D_lid4q")
+
+[node name="Target" type="Node" parent="."]
+script = ExtResource("3_wdi67")
+shouldCalculateTarget = true
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_apd40")
+health = 10.0
+
+[node name="Knockback" type="Node" parent="."]
+script = ExtResource("5_7f3c8")
+
+[node name="Ability" type="Node" parent="."]
+script = ExtResource("8_g588l")
+config = ExtResource("7_4fcoa")
+autofire = true
+
+[node name="BulletSpawner" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("11_67a2d")
+bulletPrefab = ExtResource("12_oeof3")
+target = NodePath("../Target")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("13_yrtpy")]
+position = Vector2(0, -61)
+health = NodePath("../Health")

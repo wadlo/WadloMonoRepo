@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://diic3wiy8kkkh"]
+
+[ext_resource type="Script" path="res://beta/KinematicArea2D/KinematicArea2D.cs" id="1_g7u12"]
+[ext_resource type="Texture2D" uid="uid://dow0keq7kslov" path="res://demo/graphics/medievalGraphics/arrow/BlueArrow.png" id="2_nynmm"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Health/CollisionDamage.cs" id="3_r5vth"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Target/Target.cs" id="4_q3n5d"]
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/DestroyTimer/DestroyTimer.cs" id="6_3kyj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjy42"]
+size = Vector2(69, 16)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_g7u12")
+LinearVelocity = Vector2(750, 0)
+
+[node name="BlueArrow" type="Sprite2D" parent="."]
+position = Vector2(4, 0)
+texture = ExtResource("2_nynmm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_sjy42")
+
+[node name="CollisionDamage" type="Node" parent="."]
+script = ExtResource("3_r5vth")
+damage = 5.0
+
+[node name="Target" type="Node" parent="."]
+script = ExtResource("4_q3n5d")
+
+[node name="DestroyTimer" type="Node" parent="."]
+script = ExtResource("6_3kyj5")
+destroyTimer = 1.5
+
+[connection signal="body_entered" from="." to="CollisionDamage" method="BodyEntered"]

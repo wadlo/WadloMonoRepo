@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ltqwwo3jywue"]
+
+[ext_resource type="Script" path="res://addons/OpenCombatEngine/Components/Ability/AbilityConfig.cs" id="1_j0jfy"]
+
+[resource]
+script = ExtResource("1_j0jfy")
+maxUses = 1.0
+recoilTime = 0.0
+reloadTimePerUnit = 0.2
+fireDuration = 0.09
+chargeDuration = 0.5
+autoReload = true
