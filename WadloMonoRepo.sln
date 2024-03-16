@@ -1,0 +1,16 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+
+# Addons
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EAAA}") = "GodotOpenECS", "Addons\GodotOpenECS\Src\GodotOpenECS.csproj", "{GUID1}"
+EndProject
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EBBB}") = "OpenCombatEngine", "Addons\OpenCombatEngine\Src\OpenCombatEngine.csproj", "{GUID2}"
+EndProject
+
+
+# Games
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79ECCC}") = "AutoArmies", "Games\AutoArmies\Src\AutoArmies.csproj", "{GUID3}"
+EndProject
+
+
