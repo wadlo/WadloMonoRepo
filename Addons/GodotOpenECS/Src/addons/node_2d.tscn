@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://be5ukjry83du4"]
+[gd_scene load_steps=2 format=3 uid="uid://be5ukjry83du4"]
+
+[ext_resource type="Script" path="res://addons/GodotOpenECS/TestComponentCache.cs" id="1_w8b43"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_w8b43")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Node3" type="Node" parent="."]
+
+[node name="Node4" type="Node" parent="."]
+
+[node name="Node5" type="Node" parent="."]
+
+[node name="Node6" type="Node" parent="."]
+
+[node name="Node7" type="Node" parent="."]
+
+[node name="Node8" type="Node" parent="."]
+
+[node name="Node9" type="Node" parent="."]
+
+[node name="Node10" type="Node" parent="."]
+
+[node name="Node11" type="Node" parent="."]
+
+[node name="Node12" type="Node" parent="."]
+
+[node name="Node13" type="Node" parent="."]
+
+[node name="Node14" type="Node" parent="."]

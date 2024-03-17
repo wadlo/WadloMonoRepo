@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Open Top Down Engine"
+project/assembly_name="OpenTopDownEngine"
 
 [filesystem]
 

@@ -36,6 +36,7 @@ namespace OpenTDE
 
         public static Node2D GetClosestNodeInGroup(SceneTree tree, Vector2 position, string group)
         {
+            // I'm not sure how performant GetNodesInGroup is, but this may need to be optimized
             Array<Node> nodes = tree.GetNodesInGroup(group);
 
             Node2D closest = null;
